@@ -1,4 +1,3 @@
-
 import React, { useEffect, useState } from 'react'
 import Header from './components/Header'
 import CardGrid from './components/CardGrid '
@@ -12,12 +11,12 @@ const App = () => {
   const getData = async () => {
     const res = await axios.get("https://jsonplaceholder.typicode.com/posts");
     setData(res?.data)
-    console.log("res ", res?.data);
   }
 
   useEffect(() => {
     getData()
   }, [])
+
   return (
     <SearchProvider>
       <Header />

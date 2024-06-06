@@ -19,13 +19,9 @@ const Header = () => {
   const isMobile = useMediaQuery((theme) => theme.breakpoints.down('md'));
   const [isDrawerOpen, setIsDrawerOpen] = useState(false);
 
-  const handleSearchChange = (event) => {
-    setSearchTerm(event.target.value);
-  };
+  const handleSearchChange = (event) => setSearchTerm(event.target.value);
+  const toggleDrawer = () => setIsDrawerOpen(!isDrawerOpen);
 
-  const toggleDrawer = () => {
-    setIsDrawerOpen(!isDrawerOpen);
-  };
 
   return (
     <AppBar position="static">
@@ -38,11 +34,7 @@ const Header = () => {
           )
         }
         {
-          !isMobile && (
-            <Typography variant="h6" sx={{ flexGrow: 1 }}>
-              My Application
-            </Typography>
-          )
+          !isMobile && <Typography variant="h6" sx={{ flexGrow: 1 }}> My Application</Typography>
         }
         <Box sx={{ flexGrow: 1 }} />
         <TextField
@@ -57,7 +49,7 @@ const Header = () => {
           onChange={handleSearchChange}
         />
       </Toolbar>
-      <Drawer anchor="left" open={isDrawerOpen} onClose={toggleDrawer} sx={{ width: '60%' }}>
+      <Drawer anchor="left" open={isDrawerOpen} onClose={toggleDrawer} PaperProps={{ sx: { width: '80%' } }}>
         <List>
           {['Home', 'About Us', 'Contact Us'].map((text, index) => (
             <ListItem button key={index}>

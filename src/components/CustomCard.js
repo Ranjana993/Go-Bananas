@@ -5,14 +5,10 @@ import Typography from '@mui/material/Typography';
 
 const CustomCard = ({ title, body }) => {
   return (
-    <Card sx={{ minWidth: 275, m: 2 }}>
+    <Card sx={{ minWidth: 275, m: 2, transition: 'box-shadow 0.3s', '&:hover': { boxShadow: 6 } }} >
       <CardContent>
-        <Typography variant="h5" component="div">
-          {title}
-        </Typography>
-        <Typography variant="body2">
-          {body}
-        </Typography>
+        <Typography sx={{ textTransform: "capitalize" }} variant="h5" component="div">{title} </Typography>
+        <Typography variant="body2"> {body}</Typography>
       </CardContent>
     </Card>
   );
